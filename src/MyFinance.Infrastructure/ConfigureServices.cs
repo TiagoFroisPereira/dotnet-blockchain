@@ -11,5 +11,6 @@ public static class ConfigureServices
     {
         services.Configure<BlockchainOptions>(configuration.GetSection(BlockchainOptions.Position));
         services.AddScoped<IBlockchainClient, BlockchainClient>();
+        services.AddScoped<IFinanceContract, FinanceContract>();
     }
 }
