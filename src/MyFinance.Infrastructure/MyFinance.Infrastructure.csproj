@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Mapster" Version="7.3.0" />
+        <PackageReference Include="Mapster.DependencyInjection" Version="1.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="1.0.0" />
+        <PackageReference Include="Nethereum.Web3" Version="4.13.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions"
+            Version="7.0.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions"
+            Version="7.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\MyFinance.Application\MyFinance.Application.csproj" />
+        <!-- <ProjectReference Include="..\ManagementApp.Domain\ManagementApp.Domain.csproj" /> -->
+    </ItemGroup>
+</Project>
