@@ -7,6 +7,7 @@ using MyFinance.Domain.Aggregates;
 using Mapster;
 using Microsoft.Extensions.Options;
 using MyFinance.Infrastructure.Blockchain;
+namespace MyFinance.Infrastructure.Contracts;
 
 [FunctionOutput]
 public class TransactionDto
@@ -26,7 +27,6 @@ public class TransactionDto
     [Parameter("uint256", "dueDate", 5)]
     public BigInteger DueDate { get; set; }
 }
-
 
 
 public class FinanceContract : IFinanceContract
@@ -62,7 +62,7 @@ public class FinanceContract : IFinanceContract
     {
         var function = _contract.GetFunction("addTransaction");
 
-        TransactionInput transactionInput = new ()
+        TransactionInput transactionInput = new()
         {
             Description = description,
             Amount = amount,
@@ -77,7 +77,7 @@ public class FinanceContract : IFinanceContract
     {
         var function = _contract.GetFunction("updateTransaction");
 
-        TransactionInput transactionInput = new ()
+        TransactionInput transactionInput = new()
         {
             Description = description,
             Amount = amount,

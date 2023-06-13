@@ -8,6 +8,7 @@ public class BlockchainOptions
 }
 public class Contracts{
     public BlockchainContractInfo Finance { get; set; }
+    public BlockchainContractInfo Stakin { get; set; }
 }
 
 public class BlockchainContractInfo

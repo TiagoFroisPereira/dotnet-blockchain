@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MyFinance.Application.Services;
+using MyFinance.Infrastructure.Contracts;
 
 namespace MyFinance.Controllers;
 
@@ -7,7 +8,7 @@ namespace MyFinance.Controllers;
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
 {
-    private readonly IFinanceContract _contract;
+    private readonly IStakinContract _contract;
     private static readonly string[] Summaries = new[]
     {
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -15,7 +16,7 @@ public class WeatherForecastController : ControllerBase
 
     private readonly ILogger<WeatherForecastController> _logger;
 
-    public WeatherForecastController(ILogger<WeatherForecastController> logger, IFinanceContract contract)
+    public WeatherForecastController(ILogger<WeatherForecastController> logger, IStakinContract contract)
     {
         _logger = logger;
         _contract = contract;
@@ -24,7 +25,7 @@ public class WeatherForecastController : ControllerBase
     [HttpGet(Name = "GetWeatherForecast")]
     public async Task<IEnumerable<WeatherForecast>> Get()
     {
-        await _contract.GetTransactionCountAsync();
+        await _contract.GetTotalStaked();
         return Enumerable.Range(1, 5).Select(index => new WeatherForecast
         {
             Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
